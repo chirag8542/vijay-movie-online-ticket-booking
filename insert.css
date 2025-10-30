@@ -10,10 +10,11 @@
 html,
 body {
   display: grid;
+    background-image:url("3.jpeg");
   height: 100vh;
   width: 100%;
   place-items: center;
-  background: linear-gradient(to right, #028a4a 0%, #00b627 100%);
+  //background: linear-gradient(to right, red 50%, #00b627 100%);
 }
 
 .container form .column {

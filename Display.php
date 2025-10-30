@@ -5,70 +5,55 @@
 <body>
   <div class="container">
     <div class="title">
-      <table border='2'>
+      <table border="2" cellpadding="8" cellspacing="0">
         <tr>
           <th>Id</th>
           <th>Booking Name</th>
           <th>Booking Date</th>
-          <th>No.of Tickets</th>
+          <th>No. of Tickets</th>
           <th>Price</th>
-          <th>Total Amount
+          <th>Total Amount</th>
           <th>Update</th>
           <th>Delete</th>
           <th>Bills</th>
-        </tr><br>
+        </tr>
         <?php
         include 'Conn.php';
-        $queue = "SELECT * from Movie";
+        $queue = "SELECT * FROM Movie";
         $query = mysqli_query($conn, $queue);
+
         while ($res = mysqli_fetch_array($query)) {
-          ?>
+        ?>
           <tr>
+            <td><?php echo $res['booking_id']; ?></td>
+            <td><?php echo $res['booking_name']; ?></td>
+            <td><?php echo $res['booking_date']; ?></td>
+            <td><?php echo $res['no_of_tickets']; ?></td>
+            <td><?php echo $res['price']; ?></td>
+            <td><?php echo $res['no_of_tickets'] * $res['price']; ?></td>
             <td>
-              <?php echo $res['booking_id']; ?>
+              <button><a href="update.php?booking_id=<?php echo $res['booking_id']; ?>">Update</a></button>
             </td>
             <td>
-              <?php echo $res['booking_name']; ?>
+              <button><a href="delete.php?booking_id=<?php echo $res['booking_id']; ?>">Delete</a></button>
             </td>
             <td>
-              <?php echo $res['booking_date']; ?>
-            </td>
-            <td>
-              <?php echo $res['no_of_tickets']; ?>
-            </td>
-            <td>
-              <?php echo $res['price']; ?>
-            </td>
-            <td>
-              <?php echo $res['no_of_tickets']*$res['price']; ?> 
-            </td>
-            <td>
-              <button>
-                <a href="update.php?booking_id=<?php echo $res['booking_id']; ?>"> Update </a>
-              </button><br>
-            </td>
-            <td>
-              <button>
-                <a href="delete.php?booking_id=<?php echo $res['booking_id']; ?>"> Delete </a>
-              </button>
-            </td>
-            <td>
-              <button>
-                <a href="bills.php?booking_id=<?php echo $res['booking_id']; ?>"> View Bill </a>
-              </button>
+              <button><a href="bills.php?booking_id=<?php echo $res['booking_id']; ?>">View Bill</a></button>
             </td>
           </tr>
-          <?php
+        <?php
         }
         ?>
       </table>
     </div>
   </div>
-  <a href="update.php"> update data </a>
-  <a href="delete.php"> delete update </a>
-  <center><p>copyright@2025 chirag <br>
-           contact no :8745857414
-           email:vijaybooking@yahoo.in
-       </p></center>
+
+  <center>
+    <p>
+      Copyright © 2025 Chirag
+      <br>Contact No: 8745857414
+      <br>Email: vijaybooking@yahoo.in
+    </p>
+  </center>
 </body>
 </html>
