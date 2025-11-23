@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/* Reset & Base */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,121 +7,241 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html,
 body {
-    display: grid;
-    height: 100vh;
-    width: 100%;
-    place-items: center;
-    background: url('booking.jpg') no-repeat center center fixed;
-    background-size: cover;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
+    background: #f1f1f1;
+    padding: 20px;
 }
 
-::selection {
-    background: #ffc280;
-}
 
+/* Container */
 
 .container {
+    position: relative;
     background: #fff;
-    max-width: 700px;
-    width: 100%;
-    padding: 25px 30px;
-    border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    vertical-align: middle;
+    /* white background for content */
+    max-width: 900px;
+    /* wider container for tables/forms */
+    width: 90%;
+    /* responsive width */
+    padding: 30px 40px;
+    /* padding inside container */
+    border-radius: 10px;
+    /* rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    /* subtle shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* vertical gap between child elements */
+    overflow: hidden;
+    /* prevent child overflow */
 }
 
-.container form .title {
-    font-size: 30px;
+
+/* Optional: header inside container */
+
+.container .header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container .header-title {
+    font-size: 28px;
     font-weight: 600;
-    margin: 20px 0 10px 0;
-    position: relative;
+    color: #028a46;
 }
 
-.container form .title:before {
-    content: '';
-    position: absolute;
-    height: 4px;
-    width: 33px;
-    left: 0px;
-    bottom: 3px;
-    border-radius: 5px;
-    background: linear-gradient(to right, #028a3f 0%, #00b646 100%);
-}
-
-.container form .input-box {
-    width: 100%;
-    height: 45px;
-    margin-top: 25px;
-    position: relative;
-}
-
-.container form .input-box input {
-    width: 100%;
-    height: 100%;
-    outline: none;
-    font-size: 16px;
-    border: none;
-}
-
-.container form .underline::before {
-    content: '';
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: #ccc;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.container form .underline::after {
-    content: '';
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(to right, #028a32 0%, #00b640 100%);
-    left: 0;
-    bottom: 0;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: all 0.3s ease;
-}
-
-.container form .input-box input:focus~.underline::after,
-.container form .input-box input:valid~.underline::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.container form .button {
-    margin: 40px 0 20px 0;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.container .input-box input[type="submit"] {
-    background: linear-gradient(to right, #028a46 0%, #00b664 100%);
-    font-size: 17px;
+.container .header-buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
     color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.container .header-buttons .logout-btn {
+    background: linear-gradient(to right, #028a46, #00b664);
+}
+
+.container .header-buttons .logout-btn:hover {
+    background: linear-gradient(to left, #028a46, #00b664);
+}
+
+.container .header-buttons .back-btn {
+    background: linear-gradient(to right, #007bff, #3399ff);
+}
+
+.container .header-buttons .back-btn:hover {
+    background: linear-gradient(to left, #007bff, #3399ff);
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px 25px;
+    }
+    .container .header-title {
+        font-size: 24px;
+    }
+    .container .header-buttons a {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+
+/* Header Bar */
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #028a46;
+}
+
+
+/* Header Buttons */
+
+.header-buttons a {
+    margin-left: 10px;
+}
+
+
+/* Logout Button */
+
+.logout-btn,
+.back-btn {
+    background: linear-gradient(to right, #028a46, #00b664);
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.container .input-box input[type="submit"]:hover {
-    letter-spacing: 1px;
-    background: linear-gradient(to left, #028a3f 0%, #00b646 100%);
+.logout-btn:hover,
+.back-btn:hover {
+    background: linear-gradient(to left, #028a46, #00b664);
 }
 
-.container .option {
-    font-size: 14px;
+
+/* Table Wrapper */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+
+/* Movie Table */
+
+.movie-table {
+    width: 100%;
+    border-collapse: separate;
+    /* For spacing between rows */
+    border-spacing: 0 12px;
+    /* Vertical gap */
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+
+/* Table Header */
+
+.movie-table th {
+    background: linear-gradient(to right, #028a46, #00b664);
+    color: white;
+    padding: 14px 12px;
+    font-weight: 600;
     text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+
+
+/* Table Cells */
+
+.movie-table td {
+    padding: 14px 12px;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+/* Hover Effect */
+
+.movie-table tr:hover td {
+    background: #e8ffe9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Action Buttons */
+
+.btn {
+    padding: 8px 14px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn.update {
+    background: #007bff;
+}
+
+.btn.update:hover {
+    background: #0063ce;
+}
+
+.btn.delete {
+    background: #d60000;
+}
+
+.btn.delete:hover {
+    background: #a00000;
+}
+
+.btn.bill {
+    background: #28a745;
+}
+
+.btn.bill:hover {
+    background: #1f8a36;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+    .movie-table th,
+    .movie-table td {
+        padding: 10px;
+        font-size: 13px;
+    }
+    .header-title {
+        font-size: 24px;
+    }
+    .logout-btn,
+    .back-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
 }

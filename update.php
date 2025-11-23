@@ -44,10 +44,7 @@ if (isset($_POST['done'])) {
       </div>
     </form>
   </div>
-  <center><p>copyright@2025 chirag <br>
-           contact no :8745857414
-           email:vijaybooking@yahoo.in
-       </p></center>
+  
 </body>
 
 </html>

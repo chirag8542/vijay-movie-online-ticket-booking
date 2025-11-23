@@ -1,11 +1,7 @@
 <?php
 $conn = new mysqli("localhost","root","","crudtybca23");
-if($conn){
-    echo "sucessfully connected";
+
+if($conn->connect_error){
+    die("Database Connection Failed: " . $conn->connect_error);
 }
 ?>
-<html>
-    <head>
-        <title><center><h1>vijay movie ticket </h1></center></title>
-    </head>
-</html>
