@@ -1,36 +1,167 @@
-/* bills.css */
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    width: 100%;
-    background-image: url('bis.jpg') no-repeat center center fixed;
+    background: url('moviebg.jpg') no-repeat center center fixed;
     background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 1s ease-in-out;
 }
 
-.container {
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* MAIN CONTAINER */
+
+.ticket-container {
+    width: 500px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: popUp 0.8s ease;
+    box-shadow: 0 0 25px rgba(255, 46, 99, 0.6);
+}
+
+@keyframes popUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Movie Header Banner */
+
+.header {
+    height: 160px;
+    background: url('banner.jpg') center/cover no-repeat;
+    border-radius: 20px 20px 0 0;
+}
+
+
+/* Movie Logo & Title */
+
+.movie-info {
     text-align: center;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
 }
 
-.title {
-    font-size: 24px;
-    font-weight: bold;
+.movie-logo {
+    width: 80px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.movie-name {
+    color: #ff9bd4;
+    font-size: 26px;
+    text-shadow: 0 0 15px #ff2e63;
+}
+
+.rating {
+    color: #fff;
+    font-size: 14px;
+}
+
+
+/* Tear Line Effect */
+
+.tear-line {
+    width: 100%;
+    height: 2px;
+    background: repeating-linear-gradient( to right, #fff 0px, #fff 10px, transparent 10px, transparent 20px);
+    margin: 10px 0;
+}
+
+
+/* Bill Body */
+
+.bill-body {
+    padding: 20px 30px;
+    color: #fff;
+}
+
+.bill-row {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 12px 0;
+    border-radius: 10px;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bill-row i {
+    color: #ff7eb3;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.bill-row span {
+    font-weight: 600;
+}
+
+.total {
+    background: rgba(255, 46, 99, 0.5);
+    font-size: 20px;
+    border-left: 5px solid #ff2e63;
+}
+
+
+/* QR CODE */
+
+.qr-section {
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-form {
-    text-align: left;
-}
-
-.container p {
-    margin: 5px 0;
+.qr {
+    width: 120px;
+    filter: drop-shadow(0 0 10px white);
 }
 
 
-/* Customize other styles as needed */
+/* Buttons */
+
+.btn-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-group button,
+.btn-group a {
+    margin: 8px;
+    padding: 12px 22px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(45deg, #ff2e63, #ff8c6b);
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 12px #000;
+    transition: 0.3s;
+}
+
+.btn-group button:hover,
+.btn-group a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px #ff2e63;
+}

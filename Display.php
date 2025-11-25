@@ -15,6 +15,7 @@ if(!isset($_SESSION['email'])){
 </head>
 
 <body>
+  <center>
   <div class="container">
     <?php
     $showBackButton = true; // enable back button
@@ -23,5 +24,6 @@ if(!isset($_SESSION['email'])){
     include 'components/footer.php';
     ?>
   </div>
+</center>
 </body>
 </html>

@@ -7,7 +7,7 @@ if (isset($_POST['done'])) {
   $booking_date = $_POST['booking_date'];
   $no_of_tickets = $_POST['no_of_tickets'];
   $price = $_POST['price'];
-  //$total_amount = $_POST['total_amount'];
+
   if (empty($booking_date) || empty($booking_name) || empty($no_of_tickets) || empty($price)) {
     echo "Please fill all the fields";
   } else if (!preg_match("/^[a-zA-Z ]*$/", $booking_name)) {
@@ -17,58 +17,72 @@ if (isset($_POST['done'])) {
   } else if (!is_numeric($price) || $price < 0) {
     echo "Price must be a positive number";
   } else {
-  $queue = " INSERT INTO `Movie`
-  (`booking_name`, `booking_date`, `no_of_tickets`, `price`) 
-  VALUES 
-  ('$booking_name', '$booking_date', '$no_of_tickets', '$price')";
-  $query = mysqli_query($conn, $queue);
-}
+    $queue = "INSERT INTO `Movie` (`booking_name`, `booking_date`, `no_of_tickets`, `price`) 
+              VALUES ('$booking_name', '$booking_date', '$no_of_tickets', '$price')";
+    mysqli_query($conn, $queue);
+  }
 }
 ?>
 
 <html>
 <head>
-  <title> Registration Form </title>
+  <title>Movie Ticket Booking</title>
   <link rel="stylesheet" href="insert.css">
-  
 </head>
 
 <body>
+<div class="slider">
+
+
+    <div class="slide"><img src="1.jpeg"></div>
   
+</div>
+
   <div class="container">
     <form method="post">
-      <div class="title"> vijay Booking Movie Tickets<br>
-        <img src="1.jpeg" width="100" height="90"> vansh 2 </img>
+      <div class="title">
+        Vijay Booking Movie Tickets <br>
+        
       </div>
-      <div class="column">
-        <div class="input-box">
-          <input type="text" name="booking_name" placeholder="Enter Booking Name">
-          <div class="underline"></div>
-        </div>
-        <div class="input-box">
-          <input type="date" name="booking_date" placeholder="Enter Booking Date">
-          <div class="underline"></div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="input-box">
-          <input type="text" name="no_of_tickets" placeholder="Enter No of Tickets">
-          <div class="underline"></div>
-        </div>
-        <div class="input-box">
-          <input type="text" name="price" value = 150 placeholder="Enter Price">
-          <div class="underline"></div>
-        </div>
+  <div class="input-box">
+  <i class="fa fa-user"></i>
+  <input type="text" name="booking_name" placeholder="Enter Booking Name">
+</div>
+
+<div class="input-box">
+  <i class="fa fa-calendar"></i>
+  <input type="date" name="booking_date">
+</div>
+
+<div class="input-box">
+  <i class="fa fa-ticket"></i>
+  <input type="text" name="no_of_tickets" placeholder="Enter No of Tickets">
+</div>
+
+<div class="input-box">
+  <i class="fa fa-indian-rupee-sign"></i>
+  <input type="text" name="price" value="150">
+</div>
+
+      
+
       <div class="input-box button">
         <input type="submit" name="done" value="Book Now">
       </div>
     </form>
   </div>
-  <center> <a href="display.php" >show booking </a> <center>
-  <center><p>copyright@2025 chirag <br>
-           contact no :8745857414
-           email:vijaybooking@yahoo.in
-       </p></center>
-</body>
 
+  <center>
+    <a href="display.php" style="color:white; font-size:18px;">Show Booking</a>
+  </center>
+
+  <footer>
+    <p>
+      © 2025 Chirag <br>
+      Contact: 8745857414 <br>
+      Email: vijaybooking@yahoo.in
+    </p>
+  </footer>
+
+</body>
 </html>

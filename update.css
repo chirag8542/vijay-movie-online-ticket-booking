@@ -1,0 +1,168 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* BACKGROUND IMAGE */
+
+body {
+    height: 100vh;
+    background: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4") no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+/* Dark overlay */
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* FORM CONTAINER (Glassmorphism) */
+
+.container {
+    position: relative;
+    width: 420px;
+    padding: 35px 40px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    animation: fadeIn 1s ease-out;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Entrance animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* TITLE */
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+
+/* INPUT WRAPPER */
+
+.input-box {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+    animation: slideUp 0.6s ease;
+}
+
+
+/* Input fade animation */
+
+@keyframes slideUp {
+    from {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* INPUT FIELD */
+
+.input-box input {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+    transition: .3s;
+}
+
+
+/* GLOW ON FOCUS */
+
+.input-box input:focus {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    outline: none;
+    transform: scale(1.02);
+}
+
+
+/* ICON INSIDE INPUT */
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #333;
+    animation: iconFloat 2s infinite ease-in-out;
+}
+
+
+/* Floating icon animation */
+
+@keyframes iconFloat {
+    0% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(-60%);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+
+/* SUBMIT BUTTON */
+
+.button input {
+    width: 100%;
+    padding: 12px;
+    background: #ff7b00;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.button input:hover {
+    background: #ff5100;
+    transform: scale(1.07);
+    box-shadow: 0 0 15px rgba(255, 120, 0, 0.7);
+}
